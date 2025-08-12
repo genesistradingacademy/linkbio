@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>asuro • link bio</title>
+  <meta name="description" content="Ebook Wolverine, Mestre do Wolverine, Sala Operacional, Mentoria e Conta Gerenciada. Todos os links oficiais da Asuro." />
+  <meta property="og:title" content="asuro • link bio" />
+  <meta property="og:description" content="Ebook Wolverine, Mestre do Wolverine, Sala Operacional, Mentoria e Conta Gerenciada." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo.png" />
+  <meta name="theme-color" content="#0F1C44" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0F1C44;
+      --navy-2:#1C2B6B;
+      --green:#114B3A;
+      --lime:#9BE13A;
+      --orange:#FF8A00;
+      --purple:#6F5CF6;
+      --bg:#0B132B;
+      --surface:#0F1836;
+      --text:#FFFFFF;
+      --muted:#C8D0E0;
+      --ring: 0 0 0 6px color-mix(in oklab, var(--lime) 25%, transparent);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, color-mix(in oklab, var(--lime) 20%, transparent), transparent 60%),
+        radial-gradient(1200px 600px at 110% 0%, color-mix(in oklab, var(--purple) 30%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--surface));
+      display:grid;
+      place-items:center;
+      padding:28px 18px 42px;
+    }
+    .card{
+      width:min(820px, 100%);
+      position:relative;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      border-radius:calc(var(--radius) + 6px);
+      overflow:hidden;
+      isolation:isolate;
+    }
+    .card::before, .card::after{
+      content:""; position:absolute; inset:auto auto -120px -120px; width:320px; height:320px; border-radius:32px;
+      background: conic-gradient(from 10deg, var(--lime), var(--lime) 40%, transparent 41%);
+      opacity:.25; filter: blur(2px);
+      transform:rotate(18deg);
+      z-index:-1;
+    }
+    .card::after{
+      inset: -140px -160px auto auto; width:380px; height:380px;
+      background: conic-gradient(from 0deg, var(--orange), var(--orange) 40%, transparent 41%);
+      transform:rotate(-12deg);
+    }
+    header{ display:flex; align-items:center; gap:16px; padding:26px 26px 10px 26px; }
+    .logo{
+      width:60px; height:60px; border-radius:16px; background:linear-gradient(135deg, var(--lime), color-mix(in oklab, var(--lime) 70%, #fff));
+      display:grid; place-items:center; color:#0E271E; font-weight:900; letter-spacing:.5px;
+      box-shadow: inset 0 2px 8px rgba(255,255,255,.35), 0 10px 20px rgba(0,0,0,.25);
+    }
+    .brand{ line-height:1; }
+    .brand .name{ font-family:"Bebas Neue", Poppins, sans-serif; font-size:38px; letter-spacing:.8px; }
+    .brand .tag{ color:var(--muted); font-size:14px; opacity:.95 }
+    .hero{ position:relative; padding:8px 26px 22px; display:grid; gap:10px; }
+    .headline{ font-family:"Bebas Neue", Poppins, sans-serif; font-size: clamp(36px, 4.6vw, 56px); letter-spacing: 1px; line-height:.95; }
+    .headline strong{ color:var(--lime); text-shadow:0 2px 0 rgba(0,0,0,.18) }
+    .sub{ color:var(--muted); max-width:68ch }
+    .links{ display:grid; gap:14px; padding: 6px 20px 26px; }
+    .btn{
+      position:relative; display:flex; align-items:center; gap:14px; width:100%;
+      padding:16px 18px; border-radius:var(--radius); border:none; text-decoration:none;
+      color:#0C122D; font-weight:700; background:#fff; box-shadow:var(--shadow);
+      outline: none; transition: transform .08s ease, box-shadow .2s ease;
+    }
+    .btn svg{ width:22px; height:22px; flex:0 0 auto }
+    .btn:hover{ transform: translateY(-1px) }
+    .btn:focus-visible{ box-shadow: var(--ring) }
+    .btn.navy{ background:var(--navy); color:#fff }
+    .btn.purple{ background:var(--purple); color:#fff }
+    .btn.orange{ background:var(--orange); color:#0E0A00 }
+    .btn.lime{ background:var(--lime); }
+    .btn.outline{ background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.25) }
+    .trust{ display:grid; gap:10px; padding: 6px 26px 28px; }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px }
+    .chip{ font-size:12px; color:#0E271E; background:color-mix(in oklab, var(--lime) 85%, white 15%); padding:8px 10px; border-radius:999px; font-weight:700 }
+    footer{ display:flex; justify-content:space-between; align-items:center; gap:8px; padding:18px 22px; border-top:1px solid rgba(255,255,255,.08); color:var(--muted); font-size:12px }
+    .mini{ display:flex; gap:8px }
+    .bullet{ width:8px; height:8px; border-radius:2px; background:var(--lime) }
+    @media (min-width:680px){
+      header{ padding:30px 34px 10px }
+      .hero{ padding: 8px 34px 26px }
+      .links{ grid-template-columns: 1fr 1fr; padding: 6px 26px 34px }
+      .btn{ padding:18px 20px }
+      .trust{ grid-template-columns: 1.4fr 1fr; align-items:center; padding: 6px 30px 34px }
+    }
+    /* Área de testes e debug visual */
+    #test-status{ padding:10px 14px; margin:0 18px 18px; border-radius:12px; font-size:12px; background:rgba(155,225,58,.08); border:1px solid rgba(155,225,58,.35); color:#CFE8B0 }
+    #test-status.fail{ background:rgba(255,0,0,.08); border-color:rgba(255,0,0,.35); color:#ffb4b4 }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <header>
+      <div class="logo" aria-hidden="true">A</div>
+      <div class="brand">
+        <div class="name" aria-label="asuro">asuro</div>
+        <div class="tag">B3 e Mercado Futuro</div>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="chamada principal">
+      <h1 class="headline">Domine a B3 com <strong>estratégias exclusivas</strong></h1>
+      <p class="sub">Ebook Wolverine, Mestre do Wolverine, Sala Operacional ao vivo, Mentoria personalizada e Conta Gerenciada.</p>
+    </section>
+
+    <nav class="links" aria-label="links principais">
+      <a class="btn lime" href="#" data-id="ebook" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h11a3 3 0 0 1 3 3v9H7a3 3 0 0 1-3-3V6Z" stroke="currentColor" stroke-width="2"/><path d="M18 18V9a3 3 0 0 0-3-3" stroke="currentColor" stroke-width="2"/></svg>
+        Baixar Ebook Wolverine
+      </a>
+      <a class="btn navy" href="#" data-id="mestre" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l9 5-9 5-9-5 9-5Z" stroke="currentColor" stroke-width="2"/><path d="M3 10v4c0 2 6 5 9 5s9-3 9-5v-4" stroke="currentColor" stroke-width="2"/></svg>
+        Mestre do Wolverine
+      </a>
+      <a class="btn purple" href="#" data-id="sala" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 20h10" stroke="currentColor" stroke-width="2"/></svg>
+        Sala Operacional Ao Vivo
+      </a>
+      <a class="btn orange" href="#" data-id="mentoria" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Z" stroke="currentColor" stroke-width="2"/><path d="M3 22a9 9 0 0 1 18 0" stroke="currentColor" stroke-width="2"/></svg>
+        Mentoria Exclusiva
+      </a>
+      <a class="btn outline" href="#" data-id="conta" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10l9-6 9 6v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8Z" stroke="currentColor" stroke-width="2"/></svg>
+        Conta Gerenciada
+      </a>
+    </nav>
+
+    <section class="trust" aria-label="provas e benefícios">
+      <div>
+        <h3 class="headline" style="font-size: clamp(22px, 2.4vw, 30px); margin:0 0 6px">Operações inteligentes na <strong>B3</strong></h3>
+        <p class="sub" style="margin:0">Acesse conhecimento prático, estratégias avançadas e operações gerenciadas com transparência e segurança.</p>
+      </div>
+      <div class="chips" aria-label="selos">
+        <div class="chip">Ebook Exclusivo</div>
+        <div class="chip">Mentoria Personalizada</div>
+        <div class="chip">Sala Operacional</div>
+        <div class="chip">Conta Gerenciada</div>
+      </div>
+    </section>
+
+    <div id="test-status" aria-live="polite" role="status">Executando testes…</div>
+
+    <footer>
+      <div class="mini"><span class="bullet"></span> asuro © <span id="yr">2025</span></div>
+      <div>Foco na B3</div>
+    </footer>
+  </main>
+
+  <script>
+    // Atualiza o ano
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // ==== Guardas de erro: evita que erros externos de MetaMask quebrem a página
+    window.__linkbio_onError = function(event){
+      if(event && /metamask|ethereum/i.test(event.message || '')){
+        event.preventDefault?.();
+        console.warn('[link-bio] Erro externo ignorado:', event.message);
+        return false;
+      }
+    };
+    window.addEventListener('error', window.__linkbio_onError);
+
+    window.__linkbio_onRejection = function(event){
+      const msg = (event?.reason && (event.reason.message || String(event.reason))) || '';
+      if(/metamask|ethereum/i.test(msg)){
+        event.preventDefault?.();
+        console.warn('[link-bio] Rejeição externa ignorada:', msg);
+        return false;
+      }
+    };
+    window.addEventListener('unhandledrejection', window.__linkbio_onRejection);
+
+    // ==== Mini suíte de testes (não altera comportamento do usuário)
+    (function(){
+      const results = [];
+      function test(name, fn){
+        try{ fn(); results.push({name, ok:true}); }
+        catch(err){ results.push({name, ok:false, err}); }
+      }
+
+      // Teste 1: elementos essenciais existem
+      test('renderiza 5 CTAs', () => {
+        const btns = document.querySelectorAll('.btn');
+        if(btns.length < 5) throw new Error('Esperado >=5 botões, encontrado ' + btns.length);
+      });
+
+      // Teste 2: ano atualizado
+      test('ano atualizado', () => {
+        const yr = document.getElementById('yr');
+        if(!yr) throw new Error('Elemento #yr ausente');
+        if(yr.textContent !== String(new Date().getFullYear())) throw new Error('Ano não atualizado');
+      });
+
+      // Teste 3: não há dependência de MetaMask no código
+      test('sem dependência de MetaMask', () => {
+        // O código não referencia window.ethereum nem solicita conexão
+        if(String(document.documentElement.outerHTML).toLowerCase().includes('ethereum')){
+          throw new Error('Encontrado texto relacionado a ethereum no HTML');
+        }
+      });
+
+      // Teste 4: manipuladores bloqueiam erro de MetaMask
+      test('bloqueio de erros MetaMask', () => {
+        const ev = new ErrorEvent('error', {message:'Failed to connect to MetaMask', cancelable:true});
+        window.__linkbio_onError(ev);
+        if(!ev.defaultPrevented) throw new Error('onError não chamou preventDefault');
+      });
+
+      // Teste 5: bloqueio de rejeição MetaMask
+      test('bloqueio de rejeição MetaMask', () => {
+        const ev = new PromiseRejectionEvent('unhandledrejection', {reason:new Error('MetaMask connection failed'), cancelable:true});
+        window.__linkbio_onRejection(ev);
+        if(!ev.defaultPrevented) throw new Error('onRejection não chamou preventDefault');
+      });
+
+      // Renderiza status
+      const el = document.getElementById('test-status');
+      const ok = results.every(r => r.ok);
+      el.classList.toggle('fail', !ok);
+      el.textContent = ok
+        ? `\u2705 Todos os testes passaram (${results.length}).`
+        : `\u26A0\uFE0F Alguns testes falharam:\n` + results.filter(r => !r.ok).map(r => `- ${r.name}: ${r.err?.message}`).join('\n');
+      console.table(results);
+    })();
+  </script>
+</body>
+</html>
