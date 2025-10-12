@@ -13,73 +13,75 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+            background: #f5f5f5;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
-            overflow-x: hidden;
         }
 
         .container {
-            max-width: 680px;
-            width: 100%;
-            background: white;
-            border-radius: 30px;
-            padding: 40px 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .profile-section {
+        .profile-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 30px;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
+        .profile-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-container {
+            width: 120px;
+            height: 120px;
             margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse 3s ease-in-out infinite;
             background: white;
             border-radius: 20px;
             padding: 15px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .profile-img img {
+        .logo-container img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
         .profile-name {
             font-size: 32px;
             font-weight: 700;
-            color: #1a1a1a;
+            color: white;
             margin-bottom: 10px;
-            letter-spacing: 1px;
         }
 
         .profile-bio {
-            color: #666;
+            color: rgba(255,255,255,0.95);
             font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 8px;
-        }
-
-        .profile-highlight {
-            color: #4facfe;
-            font-weight: 600;
+            line-height: 1.8;
+            margin-bottom: 5px;
         }
 
         .stats {
@@ -88,8 +90,9 @@
             gap: 30px;
             margin-top: 20px;
             padding: 20px;
-            background: #f8f9fa;
+            background: rgba(255,255,255,0.15);
             border-radius: 15px;
+            backdrop-filter: blur(10px);
         }
 
         .stat-item {
@@ -99,237 +102,244 @@
         .stat-number {
             font-size: 24px;
             font-weight: 700;
-            color: #4facfe;
+            color: white;
         }
 
         .stat-label {
             font-size: 12px;
-            color: #666;
+            color: rgba(255,255,255,0.9);
             margin-top: 5px;
         }
 
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
         }
 
-        .link-btn {
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-banner {
+            width: 100%;
+            height: 180px;
             position: relative;
             display: flex;
             align-items: center;
-            padding: 18px 25px;
-            border-radius: 16px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
+            justify-content: space-between;
+            padding: 30px;
             overflow: hidden;
-            border: 2px solid transparent;
         }
 
-        .link-btn::before {
+        .card-banner::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            border-radius: 16px;
-            padding: 2px;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            opacity: 0.1;
+            background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
-        .link-btn:hover::before {
-            opacity: 1;
-        }
-
-        .link-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .link-icon {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            margin-right: 18px;
-            font-size: 26px;
-            flex-shrink: 0;
-        }
-
-        .link-content {
+        .card-content {
+            position: relative;
+            z-index: 1;
             flex: 1;
-            text-align: left;
         }
 
-        .link-title {
-            font-size: 17px;
+        .card-icon {
+            font-size: 60px;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+        }
+
+        .card-title {
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 3px;
+            color: white;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
-        .link-subtitle {
-            font-size: 13px;
-            opacity: 0.8;
-            font-weight: 400;
+        .card-subtitle {
+            font-size: 14px;
+            color: rgba(255,255,255,0.95);
+            font-weight: 500;
         }
 
-        /* Estilos individuais dos links */
-        .whatsapp {
+        .whatsapp-banner {
             background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            --gradient-start: #25D366;
-            --gradient-end: #128C7E;
         }
 
-        .youtube {
+        .youtube-banner {
             background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
-            --gradient-start: #FF0000;
-            --gradient-end: #CC0000;
         }
 
-        .ebook {
+        .ebook-banner {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-start: #667eea;
-            --gradient-end: #764ba2;
         }
 
-        .wolverine {
+        .wolverine-banner {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-start: #f093fb;
-            --gradient-end: #f5576c;
         }
 
-        .ai-sentinel {
+        .ai-banner {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-start: #4facfe;
-            --gradient-end: #00f2fe;
         }
 
-        .mentoria {
+        .mentoria-banner {
             background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            --gradient-start: #fa709a;
-            --gradient-end: #fee140;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .footer {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
+            margin-top: 30px;
+            padding: 20px;
+            color: #999;
             font-size: 14px;
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 30px 20px;
-            }
-
             .profile-name {
                 font-size: 26px;
             }
 
-            .stats {
-                gap: 20px;
+            .card-banner {
+                height: 160px;
+                padding: 20px;
             }
 
-            .link-btn {
-                padding: 16px 20px;
+            .card-title {
+                font-size: 20px;
+            }
+
+            .card-icon {
+                font-size: 50px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="profile-section">
-            <div class="profile-img">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Ctext x='50' y='280' font-family='Arial, sans-serif' font-size='180' font-weight='bold' fill='%234a7dc9'%3EGT%3C/text%3E%3Ctext x='400' y='140' font-family='Arial, sans-serif' font-size='60' fill='%23a0c4e8'%3EGenesis%3C/text%3E%3Ctext x='400' y='240' font-family='Arial, sans-serif' font-size='100' font-weight='bold' fill='%234a7dc9'%3ETrading%3C/text%3E%3C/svg%3E" alt="Gênesis Trading">
-            </div>
-            <h1 class="profile-name">Gênesis Trading</h1>
-            <p class="profile-bio">💹 <span class="profile-highlight">Mercado Financeiro Global</span></p>
-            <p class="profile-bio">🚀 Criador do Método Garch e Arch</p>
-            <p class="profile-bio">🤖 Criador da AI SENTINEL</p>
-            <p class="profile-bio">💎 Market Maker - Operacional Tesouraria</p>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">228</div>
-                    <div class="stat-label">Posts</div>
+        <div class="profile-header">
+            <div class="profile-content">
+                <div class="logo-container">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Ctext x='50' y='280' font-family='Arial, sans-serif' font-size='180' font-weight='bold' fill='%234a7dc9'%3EGT%3C/text%3E%3Ctext x='400' y='140' font-family='Arial, sans-serif' font-size='60' fill='%23a0c4e8'%3EGenesis%3C/text%3E%3Ctext x='400' y='240' font-family='Arial, sans-serif' font-size='100' font-weight='bold' fill='%234a7dc9'%3ETrading%3C/text%3E%3C/svg%3E" alt="Gênesis Trading">
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">1.7K</div>
-                    <div class="stat-label">Seguidores</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">2.5K</div>
-                    <div class="stat-label">Seguindo</div>
+                <h1 class="profile-name">Gênesis Trading</h1>
+                <p class="profile-bio">💹 Mercado Financeiro Global</p>
+                <p class="profile-bio">🚀 Criador do Método Garch e Arch</p>
+                <p class="profile-bio">🤖 Criador da AI SENTINEL</p>
+                <p class="profile-bio">💎 Market Maker - Operacional Tesouraria</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">228</div>
+                        <div class="stat-label">Posts</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1.7K</div>
+                        <div class="stat-label">Seguidores</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2.5K</div>
+                        <div class="stat-label">Seguindo</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="links-container">
-            <a href="https://wa.me/5511934201198" target="_blank" class="link-btn whatsapp">
-                <div class="link-icon">📱</div>
-                <div class="link-content">
-                    <div class="link-title">WhatsApp</div>
-                    <div class="link-subtitle">Fale diretamente conosco</div>
+        <a href="https://wa.me/5511934201198" target="_blank" class="card">
+            <div class="card-banner whatsapp-banner">
+                <div class="card-content">
+                    <div class="card-title">WhatsApp</div>
+                    <div class="card-subtitle">Tire suas dúvidas diretamente conosco</div>
                 </div>
-            </a>
+                <div class="card-icon">💬</div>
+            </div>
+        </a>
 
-            <a href="https://youtube.com/@genesistradingacademy" target="_blank" class="link-btn youtube">
-                <div class="link-icon">▶️</div>
-                <div class="link-content">
-                    <div class="link-title">Canal YouTube</div>
-                    <div class="link-subtitle">Conteúdos exclusivos sobre trading</div>
+        <a href="https://youtube.com/@genesistradingacademy" target="_blank" class="card">
+            <div class="card-banner youtube-banner">
+                <span class="badge">INSCREVA-SE</span>
+                <div class="card-content">
+                    <div class="card-title">Canal YouTube</div>
+                    <div class="card-subtitle">Aulas e conteúdos valiosos de Day Trade</div>
                 </div>
-            </a>
+                <div class="card-icon">▶️</div>
+            </div>
+        </a>
 
-            <a href="https://wa.me/5511934201198?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Ebook%20Gratuito" target="_blank" class="link-btn ebook">
-                <div class="link-icon">📚</div>
-                <div class="link-content">
-                    <div class="link-title">Ebook Gratuito</div>
-                    <div class="link-subtitle">Baixe nosso material exclusivo</div>
+        <a href="https://wa.me/5511934201198?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Ebook%20Wolverine" target="_blank" class="card">
+            <div class="card-banner ebook-banner">
+                <span class="badge">~90% ACERTO</span>
+                <div class="card-content">
+                    <div class="card-title">Ebook Wolverine</div>
+                    <div class="card-subtitle">Estratégia validada com alta taxa de acerto</div>
                 </div>
-            </a>
+                <div class="card-icon">📚</div>
+            </div>
+        </a>
 
-            <a href="https://wa.me/5511934201198?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Mestre%20do%20Wolverine" target="_blank" class="link-btn wolverine">
-                <div class="link-icon">🎯</div>
-                <div class="link-content">
-                    <div class="link-title">Mestre do Wolverine</div>
-                    <div class="link-subtitle">Método avançado de operações</div>
+        <a href="https://wa.me/5511934201198?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Mestre%20do%20Wolverine" target="_blank" class="card">
+            <div class="card-banner wolverine-banner">
+                <span class="badge">AVANÇADO</span>
+                <div class="card-content">
+                    <div class="card-title">Mestre do Wolverine</div>
+                    <div class="card-subtitle">Videoaulas avançadas do método Wolverine</div>
                 </div>
-            </a>
+                <div class="card-icon">🎯</div>
+            </div>
+        </a>
 
-            <a href="https://wa.me/5511934201198?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20AI%20SENTINEL%20GENESIS" target="_blank" class="link-btn ai-sentinel">
-                <div class="link-icon">🤖</div>
-                <div class="link-content">
-                    <div class="link-title">AI SENTINEL GENESIS</div>
-                    <div class="link-subtitle">Inteligência artificial para trading</div>
+        <a href="https://wa.me/5511934201198?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20AI%20SENTINEL%20GENESIS" target="_blank" class="card">
+            <div class="card-banner ai-banner">
+                <span class="badge">IA AVANÇADA</span>
+                <div class="card-content">
+                    <div class="card-title">AI SENTINEL GENESIS</div>
+                    <div class="card-subtitle">Sistema com GARCH e Quant - Dólar Futuro</div>
                 </div>
-            </a>
+                <div class="card-icon">🤖</div>
+            </div>
+        </a>
 
-            <a href="https://wa.me/5511934201198?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Mentoria%20Exclusiva" target="_blank" class="link-btn mentoria">
-                <div class="link-icon">⭐</div>
-                <div class="link-content">
-                    <div class="link-title">Mentoria Exclusiva</div>
-                    <div class="link-subtitle">Aprenda com os melhores</div>
+        <a href="https://wa.me/5511934201198?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Mentoria%20Exclusiva" target="_blank" class="card">
+            <div class="card-banner mentoria-banner">
+                <span class="badge">EXCLUSIVO</span>
+                <div class="card-content">
+                    <div class="card-title">Mentoria Personalizada</div>
+                    <div class="card-subtitle">Dólar Futuro, Macro/Micro e Tesouraria</div>
                 </div>
-            </a>
-        </div>
+                <div class="card-icon">⭐</div>
+            </div>
+        </a>
 
         <div class="footer">
-            <p>© 2025 Gênesis Trading Academy</p>
+            <p><strong>© 2025 Gênesis Trading Academy</strong></p>
             <p>Trader Quant - Curva de Juros - Tesouraria</p>
         </div>
     </div>
