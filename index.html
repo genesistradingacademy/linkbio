@@ -55,13 +55,25 @@
         }
 
         .logo-container {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             margin: 0 auto 20px;
             background: white;
-            border-radius: 20px;
-            padding: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px);
+                box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            }
+            50% { 
+                transform: translateY(-10px);
+                box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            }
         }
 
         .logo-container img {
@@ -255,21 +267,6 @@
                 <p class="profile-bio">🚀 Criador do Método Garch e Arch</p>
                 <p class="profile-bio">🤖 Criador da AI SENTINEL</p>
                 <p class="profile-bio">💎 Market Maker - Operacional Tesouraria</p>
-                
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">228</div>
-                        <div class="stat-label">Posts</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">1.7K</div>
-                        <div class="stat-label">Seguidores</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">2.5K</div>
-                        <div class="stat-label">Seguindo</div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -321,7 +318,7 @@
                 <span class="badge">IA AVANÇADA</span>
                 <div class="card-content">
                     <div class="card-title">AI SENTINEL GENESIS</div>
-                    <div class="card-subtitle">Sistema com GARCH e Quant - Dólar Futuro</div>
+                    <div class="card-subtitle">IA que mostra onde operar com gestão inteligente</div>
                 </div>
                 <div class="card-icon">🤖</div>
             </div>
