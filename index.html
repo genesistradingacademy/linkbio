@@ -260,7 +260,58 @@
         <div class="profile-header">
             <div class="profile-content">
                 <div class="logo-container">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Ctext x='50' y='280' font-family='Arial, sans-serif' font-size='180' font-weight='bold' fill='%234a7dc9'%3EGT%3C/text%3E%3Ctext x='400' y='140' font-family='Arial, sans-serif' font-size='60' fill='%23a0c4e8'%3EGenesis%3C/text%3E%3Ctext x='400' y='240' font-family='Arial, sans-serif' font-size='100' font-weight='bold' fill='%234a7dc9'%3ETrading%3C/text%3E%3C/svg%3E" alt="Gênesis Trading">
+                    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E5FCC;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="tradingGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="bgGradient">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:0.05" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:0" />
+    </radialGradient>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.25"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="800" height="800" fill="#ffffff"/>
+  <circle cx="400" cy="400" r="350" fill="url(#bgGradient)"/>
+  
+  <g transform="translate(250, 120)" filter="url(#shadow)">
+    <path d="M 0 150 Q 0 0, 150 0 L 150 40 Q 40 40, 40 150 Q 40 260, 150 260 L 150 150 L 100 150 L 100 200 L 100 215 L 150 215 L 200 215 L 200 100 L 200 300 L 150 300 Q 0 300, 0 150 Z" 
+          fill="url(#blueGradient)" opacity="0.3"/>
+    
+    <path d="M 55 150 Q 55 55, 150 55 L 150 85 Q 85 85, 85 150 Q 85 215, 150 215 L 150 165 L 130 165 L 130 185 L 150 185 L 170 185 L 170 150 L 170 245 L 150 245 Q 55 245, 55 150 Z" 
+          fill="url(#blueGradient)"/>
+    
+    <rect x="215" y="0" width="45" height="300" fill="url(#blueGradient)" rx="6"/>
+    <rect x="185" y="0" width="105" height="55" fill="url(#blueGradient)" rx="6"/>
+  </g>
+  
+  <text x="400" y="520" font-family="'Montserrat', 'Arial', sans-serif" font-size="64" font-weight="300" fill="#B8D4F1" letter-spacing="3" text-anchor="middle">Genesis</text>
+  
+  <text x="400" y="610" font-family="'Montserrat', 'Arial', sans-serif" font-size="82" font-weight="700" fill="url(#tradingGradient)" letter-spacing="2" text-anchor="middle">Trading</text>
+  
+  <line x1="250" y1="635" x2="550" y2="635" stroke="url(#blueGradient)" stroke-width="4" opacity="0.4" stroke-linecap="round"/>
+  
+  <circle cx="560" cy="635" r="6" fill="url(#blueGradient)"/>
+</svg>
                 </div>
                 <h1 class="profile-name">Gênesis Trading</h1>
                 <p class="profile-bio">💹 Mercado Financeiro Global</p>
